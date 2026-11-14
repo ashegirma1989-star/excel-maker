@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="A simple private finance tracker for managing income and expenses across your companies.">
+  <title>Finance Manager | Ashenafi Girma</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--panel:#121d2e;--panel2:#172438;--line:#26364b;--text:#edf3fb;--muted:#9aabc0;--blue:#77aaff;--green:#47d7a0;--red:#ff8291;--shadow:0 12px 32px #0002}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#203658 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}header{border-bottom:1px solid var(--line);background:#0d1625cc}.top{max-width:1180px;margin:auto;padding:21px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:13px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#8fb8ff,#477fe3);display:grid;place-items:center;color:#081324;font-weight:900;font-size:23px}.brand h1{font-size:20px;line-height:1.2;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}.privacy{border:1px solid #287454;background:#102b27;color:#a6f1d2;border-radius:999px;padding:7px 11px;font-size:12px;white-space:nowrap}main{max-width:1180px;margin:auto;padding:26px 22px 48px}.welcome{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.welcome h2{margin:0;font-size:26px;letter-spacing:-.4px}.welcome p{margin:5px 0 0;color:var(--muted)}.button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:10px;font-weight:650;transition:.15s}.button:hover{border-color:#5b7ca5;transform:translateY(-1px)}.button.primary{border-color:#84b1ff;background:#84b1ff;color:#101827}.button.subtle{background:transparent}.button.danger{color:#ffabb4}.filters{display:flex;align-items:end;gap:12px;flex-wrap:wrap;padding:14px;border:1px solid var(--line);border-radius:14px;background:#111b2b;margin-bottom:15px}.field{display:grid;gap:5px;flex:1;min-width:145px}.field label{font-size:12px;color:var(--muted);font-weight:600}.field input,.field select,.company-input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:#0b1422;color:var(--text);outline:none}.field input:focus,.field select:focus,.company-input:focus{border-color:var(--blue)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}.card{border:1px solid var(--line);border-radius:15px;background:linear-gradient(140deg,#17263b,#111b2b 75%);padding:18px;box-shadow:var(--shadow)}.card .label{font-size:13px;color:var(--muted)}.amount{font-size:25px;font-weight:750;letter-spacing:-.5px;margin:9px 0 3px;overflow-wrap:anywhere}.card small{color:var(--muted)}.income{color:var(--green)}.expense{color:var(--red)}.net.negative{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(290px,.78fr) minmax(0,1.55fr);gap:15px;align-items:start}.panel{border:1px solid var(--line);border-radius:15px;background:var(--panel);padding:18px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.panel h3{margin:0;font-size:17px}.panel-head p{margin:3px 0 0;color:var(--muted);font-size:12px}.form-grid{display:grid;gap:12px}.form-grid .field{min-width:0}.form-grid textarea{resize:vertical;min-height:75px}.form-grid textarea,.form-grid input,.form-grid select{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:#0b1422;color:var(--text);outline:none}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:var(--blue)}.form-grid label{font-size:12px;color:var(--muted);font-weight:600}.form-grid .button{width:100%;margin-top:3px}.hint{font-size:12px;color:var(--muted);margin:0}.toolbar{display:flex;align-items:center;gap:8px}.toolbar .button{padding:8px 10px;font-size:13px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.07em;padding:10px 9px;border-bottom:1px solid var(--line);white-space:nowrap}td{padding:12px 9px;border-bottom:1px solid #223148;font-size:13px}tbody tr:last-child td{border-bottom:0}.description{font-weight:650;color:var(--text)}.subline{font-size:11px;color:var(--muted);margin-top:3px}.tag{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:20px;padding:3px 8px;color:#cad7e8;font-size:11px;white-space:nowrap}.delete{border:0;background:transparent;color:var(--muted);padding:5px 7px;border-radius:6px}.delete:hover{background:#40252e;color:#ffb5bd}.empty{text-align:center;padding:35px 12px;color:var(--muted)}details{margin-top:15px;border-top:1px solid var(--line);padding-top:13px}summary{cursor:pointer;color:#c5d5e8;font-size:13px;font-weight:650}.company-editor{display:grid;gap:9px;margin-top:12px}.company-line{display:grid;grid-template-columns:85px 1fr;align-items:center;gap:8px}.company-line span{font-size:12px;color:var(--muted)}.company-editor .button{justify-self:start;margin-top:3px}.notice{margin:15px 0 0;padding:11px 13px;border-radius:10px;background:#102333;border:1px solid #234761;color:#b9d6ec;font-size:12px}.status{min-height:18px;margin:9px 0 0;color:var(--green);font-size:12px}.status.error{color:var(--red)}footer{text-align:center;color:#8294aa;font-size:12px;padding:0 15px 25px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:850px){.content-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr 1fr}.form-grid .wide{grid-column:span 2}.form-grid .button{grid-column:span 2}}
+    @media(max-width:600px){.top{padding:16px}.privacy{font-size:0;padding:8px}.privacy:after{content:'Private';font-size:11px}main{padding:20px 14px 35px}.welcome{align-items:flex-start;flex-direction:column}.welcome h2{font-size:23px}.cards{gap:8px}.card{padding:13px 11px}.amount{font-size:18px}.card .label{font-size:11px}.card small{font-size:10px}.panel{padding:14px}.filters{padding:11px;gap:9px}.field{min-width:125px}.form-grid{grid-template-columns:1fr}.form-grid .wide,.form-grid .button{grid-column:auto}.panel-head{align-items:flex-start;flex-wrap:wrap}.company-line{grid-template-columns:72px 1fr}}
+  </style>
+</head>
+<body>
+  <header><div class="top"><div class="brand"><div class="logo" aria-hidden="true">₣</div><div><h1>Finance Manager</h1><p>Ashენafi Girma · Finance &amp; Accounting</p></div></div><div class="privacy">🔒 Stored on this device</div></div></header>
+  <main>
+    <section class="welcome"><div><h2>Financial overview</h2><p>Track income and expenses across your companies.</p></div><button class="button subtle" id="exportButton" type="button">↓ Export CSV</button></section>
+    <section class="filters" aria-label="Report filters">
+      <div class="field"><label for="companyFilter">Company</label><select id="companyFilter"><option value="all">All companies</option></select></div>
+      <div class="field"><label for="monthFilter">Reporting month</label><input id="monthFilter" type="month"></div>
+      <button class="button subtle" id="clearFilters" type="button">Clear filters</button>
+    </section>
+    <section class="cards" aria-label="Financial summary">
+      <article class="card"><div class="label">Total income</div><div class="amount income" id="incomeTotal">ETB 0.00</div><small id="incomeCount">0 income records</small></article>
+      <article class="card"><div class="label">Total expenses</div><div class="amount expense" id="expenseTotal">ETB 0.00</div><small id="expenseCount">0 expense records</small></article>
+      <article class="card"><div class="label">Net cash flow</div><div class="amount net" id="netTotal">ETB 0.00</div><small>Income minus expenses</small></article>
+    </section>
+    <div class="content-grid">
+      <section class="panel" aria-labelledby="addHeading">
+        <div class="panel-head"><div><h3 id="addHeading">Add a transaction</h3><p>Record income or an expense.</p></div></div>
+        <form id="transactionForm" class="form-grid">
+          <div class="field"><label for="type">Transaction type</label><select id="type" required><option value="income">Income</option><option value="expense">Expense</option></select></div>
+          <div class="field"><label for="company">Company</label><select id="company" required></select></div>
+          <div class="field"><label for="amount">Amount (ETB)</label><input id="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0.00" required></div>
+          <div class="field"><label for="date">Date</label><input id="date" type="date" required></div>
+          <div class="field wide"><label for="category">Category</label><input id="category" type="text" maxlength="60" placeholder="e.g. Sales, Salary, Utilities" required></div>
+          <div class="field wide"><label for="description">Description / reference <span style="font-weight:400">(optional)</span></label><textarea id="description" maxlength="180" placeholder="Add a short note or reference number"></textarea></div>
+          <button class="button primary" type="submit">＋ Save transaction</button>
+          <p class="hint wide">Amounts are entered in Ethiopian birr (ETB).</p>
+        </form>
+        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+        <details>
+          <summary>Manage company names</summary>
+          <form id="companyForm" class="company-editor"></form>
+          <p class="hint">Renaming a company updates its name on existing transactions.</p>
+        </details>
+        <p class="notice">Your information is saved in this browser on this device only. It is not uploaded or backed up. Export CSV regularly to keep a separate copy.</p>
+      </section>
+      <section class="panel" aria-labelledby="transactionsHeading">
+        <div class="panel-head"><div><h3 id="transactionsHeading">Transactions</h3><p id="transactionCount">Showing 0 records</p></div><div class="toolbar"><button class="button" id="exportTableButton" type="button">Export CSV</button></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Company</th><th>Details</th><th>Type</th><th>Amount</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="transactionRows"></tbody></table><div class="empty" id="emptyState">No transactions match these filters. Add your first transaction to get started.</div></div>
+      </section>
+    </div>
+  </main>
+  <footer>Finance Manager · A personal tracking tool, not a substitute for accounting records or professional advice.</footer>
+<script>
+(() => {
+  'use strict';
+  const STORAGE_KEY = 'ashenafi-finance-manager-v1';
+  const defaultCompanies = [
+    { id: 'company-1', name: 'Company 1' },
+    { id: 'company-2', name: 'Company 2' },
+    { id: 'company-3', name: 'Company 3' },
+    { id: 'company-4', name: 'Company 4' }
+  ];
+  const $ = (id) => document.getElementById(id);
+  const today = new Date();
+  const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const monthNow = localDate.slice(0, 7);
+  let state = loadState();
+  $('date').value = localDate;
+  $('monthFilter').value = monthNow;
+
+  function loadState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && Array.isArray(saved.companies) && Array.isArray(saved.transactions)) {
+        return {
+          companies: saved.companies.filter(c => c && typeof c.id === 'string').map(c => ({ id: c.id, name: String(c.name || 'Company').slice(0, 60) })),
+          transactions: saved.transactions.filter(t => t && typeof t.id === 'string' && ['income', 'expense'].includes(t.type) && Number.isFinite(Number(t.amount))).map(t => ({ ...t, amount: Number(t.amount) }))
+        };
+      }
+    } catch (error) { /* Start with an empty ledger if saved data is unreadable. */ }
+    return { companies: defaultCompanies.map(c => ({ ...c })), transactions: [] };
+  }
+  function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); return true; }
+    catch (error) { setStatus('Could not save. Browser storage may be full or disabled.', true); return false; }
+  }
+  function setStatus(message, isError = false) {
+    const el = $('formStatus'); el.textContent = message; el.classList.toggle('error', isError);
+  }
+  function money(value) {
+    return new Intl.NumberFormat('en-ET', { style: 'currency', currency: 'ETB', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+  }
+  function formatDate(value) {
+    if (!value) return '';
+    const parts = value.split('-');
+    if (parts.length !== 3) return value;
+    return new Intl.DateTimeFormat('en-ET', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2])));
+  }
+  function el(tag, text, className) {
+    const node = document.createElement(tag);
+    if (text !== undefined) node.textContent = text;
+    if (className) node.className = className;
+    return node;
+  }
+  function renderCompanyOptions() {
+    const filter = $('companyFilter');
+    const selectedFilter = filter.value || 'all';
+    filter.replaceChildren(new Option('All companies', 'all'));
+    state.companies.forEach(company => filter.add(new Option(company.name, company.id)));
+    filter.value = state.companies.some(c => c.id === selectedFilter) ? selectedFilter : 'all';
+    const select = $('company');
+    const previous = select.value;
+    select.replaceChildren();
+    state.companies.forEach(company => select.add(new Option(company.name, company.id)));
+    if (state.companies.some(c => c.id === previous)) select.value = previous;
+    const editor = $('companyForm');
+    editor.replaceChildren();
+    state.companies.forEach((company, index) => {
+      const line = el('label', undefined, 'company-line');
+      line.append(el('span', `Company ${index + 1}`));
+      const input = el('input'); input.className = 'company-input'; input.type = 'text'; input.maxLength = 60; input.required = true; input.value = company.name; input.dataset.companyId = company.id; input.setAttribute('aria-label', `Company ${index + 1} name`);
+      line.append(input); editor.append(line);
+    });
+    const saveButton = el('button', 'Save company names', 'button'); saveButton.type = 'submit'; editor.append(saveButton);
+  }
+  function visibleTransactions() {
+    const companyId = $('companyFilter').value;
+    const month = $('monthFilter').value;
+    return state.transactions.filter(t => (!month || t.date.slice(0, 7) === month) && (companyId === 'all' || t.companyId === companyId)).sort((a, b) => b.date.localeCompare(a.date) || b.createdAt - a.createdAt);
+  }
+  function render() {
+    renderCompanyOptions();
+    const transactions = visibleTransactions();
+    const incomes = transactions.filter(t => t.type === 'income');
+    const expenses = transactions.filter(t => t.type === 'expense');
+    const incomeTotal = incomes.reduce((sum, t) => sum + t.amount, 0);
+    const expenseTotal = expenses.reduce((sum, t) => sum + t.amount, 0);
+    $('incomeTotal').textContent = money(incomeTotal);
+    $('expenseTotal').textContent = money(expenseTotal);
+    $('netTotal').textContent = money(incomeTotal - expenseTotal);
+    $('netTotal').classList.toggle('negative', incomeTotal - expenseTotal < 0);
+    $('incomeCount').textContent = `${incomes.length} income ${incomes.length === 1 ? 'record' : 'records'}`;
+    $('expenseCount').textContent = `${expenses.length} expense ${expenses.length === 1 ? 'record' : 'records'}`;
+    $('transactionCount').textContent = `Showing ${transactions.length} ${transactions.length === 1 ? 'record' : 'records'}`;
+    const tbody = $('transactionRows'); tbody.replaceChildren();
+    transactions.forEach(t => {
+      const row = document.createElement('tr');
+      row.append(el('td', formatDate(t.date)));
+      const company = state.companies.find(c => c.id === t.companyId);
+      row.append(el('td', company ? company.name : 'Unknown company'));
+      const details = document.createElement('td'); details.append(el('div', t.category, 'description'));
+      if (t.description) details.append(el('div', t.description, 'subline'));
+      row.append(details);
+      row.append(el('td', t.type === 'income' ? 'Income' : 'Expense', `tag ${t.type}`));
+      row.append(el('td', `${t.type === 'income' ? '+' : '−'} ${money(t.amount)}`, t.type === 'income' ? 'income' : 'expense'));
+      const actions = document.createElement('td');
+      const remove = el('button', 'Delete', 'delete'); remove.type = 'button'; remove.setAttribute('aria-label', `Delete ${t.type} record: ${t.category}`); remove.addEventListener('click', () => deleteTransaction(t.id));
+      actions.append(remove); row.append(actions); tbody.append(row);
+    });
+    $('emptyState').hidden = transactions.length > 0;
+  }
+  function deleteTransaction(id) {
+    if (!window.confirm('Delete this transaction? This cannot be undone.')) return;
+    state.transactions = state.transactions.filter(t => t.id !== id);
+    saveState(); render(); setStatus('Transaction deleted.');
+  }
+  function exportCSV() {
+    const rows = [['Date', 'Company', 'Type', 'Category', 'Description', 'Amount (ETB)'], ...visibleTransactions().map(t => {
+      const company = state.companies.find(c => c.id === t.companyId);
+      return [t.date, company ? company.name : 'Unknown company', t.type, t.category, t.description || '', t.amount.toFixed(2)];
+    })];
+    const quote = value => {
+      let text = String(value ?? '');
+      if (/^[=+\-@\t\r]/.test(text)) text = `'${text}`;
+      return `"${text.replace(/"/g, '""')}"`;
+    };
+    const csv = '\ufeff' + rows.map(row => row.map(quote).join(',')).join('\r\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob); const link = document.createElement('a');
+    link.href = url; link.download = `finance-report-${$('monthFilter').value || 'all-time'}.csv`;
+    document.body.append(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+  }
+  $('transactionForm').addEventListener('submit', event => {
+    event.preventDefault();
+    if (!state.companies.length) { setStatus('Add a company name before recording transactions.', true); return; }
+    const amount = Number($('amount').value);
+    if (!Number.isFinite(amount) || amount <= 0) { setStatus('Enter an amount greater than zero.', true); return; }
+    const transaction = {
+      id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      type: $('type').value, companyId: $('company').value, amount,
+      date: $('date').value, category: $('category').value.trim(), description: $('description').value.trim(), createdAt: Date.now()
+    };
+    if (!transaction.date || !transaction.category) { setStatus('Please complete the date and category.', true); return; }
+    state.transactions.push(transaction);
+    if (!saveState()) return;
+    event.target.reset(); $('date').value = localDate; $('type').value = 'income';
+    render(); setStatus('Transaction saved on this device.');
+  });
+  $('companyForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const inputs = [...event.currentTarget.querySelectorAll('input[data-company-id]')];
+    if (inputs.some(input => !input.value.trim())) { setStatus('Company names cannot be empty.', true); return; }
+    inputs.forEach(input => { const company = state.companies.find(c => c.id === input.dataset.companyId); if (company) company.name = input.value.trim(); });
+    saveState(); render(); setStatus('Company names updated.');
+  });
+  $('companyFilter').addEventListener('change', render);
+  $('monthFilter').addEventListener('change', render);
+  $('clearFilters').addEventListener('click', () => { $('companyFilter').value = 'all'; $('monthFilter').value = ''; render(); });
+  $('exportButton').addEventListener('click', exportCSV);
+  $('exportTableButton').addEventListener('click', exportCSV);
+  render();
+})();
+</script>
+</body>
+</html>
